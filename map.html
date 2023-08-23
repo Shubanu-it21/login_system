@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map Search</title>
+    
+    <style>
+        h1 {
+          font-size: 60px;
+          text-align:center;
+        }
+        form {
+            font-size: 40px;
+            text-align:center;
+        }
+       #hero {
+    background-image: url("https://i.pinimg.com/736x/b7/87/32/b787320a4743e7c5ce9c36028834b378--architecture-graphics-vectors.jpg");
+    height: 90vh;
+    width: 100%;
+    background-size: cover;
+    background-position: top 25% right 0;
+    padding: 0 80px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+  
+    </style>
+        
+        
+</head>
+<body>
+
+<section id="hero">
+    <h1>Search for a Place on Google Maps</h1>
+    <form id="searchForm">
+        <input type="text" id="searchInput" placeholder="Enter a place">
+        <button type="submit">Search</button>
+    </form>
+</section>
+
+    <script>
+        document.getElementById("searchForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const searchQuery = document.getElementById("searchInput").value;
+            const encodedSearchQuery = encodeURIComponent(searchQuery);
+            const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedSearchQuery}`;
+            window.location.href = googleMapsUrl;
+        });
+    </script>
+</body>
+</html>
